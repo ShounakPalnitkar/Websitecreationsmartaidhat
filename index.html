@@ -218,8 +218,7 @@
 <body>
     <div class="header">
         <h1 class="title">SmartVision Pro</h1>
-        <div class="quote">"Improve your life consistently with strong support and enhanced mobility"
-</div>
+        <div class="quote">"Empowering Independent Navigation Through AI-Enhanced Spatial Awareness"</div>
         <img src="https://i.postimg.cc/HWZGV4Bs/photo-collage-4.png" alt="Smart Hat System" class="hero-image">
         
         <div class="nav-buttons">
@@ -418,55 +417,37 @@
         });
 
         // Battery & Thermal Performance
-       / Combined Battery & Thermal Performance
-const batteryData = {
-    x: [0, 30, 60, 90, 120],
-    y: [100, 75, 50, 25, 0],
-    type: 'scatter',
-    mode: 'lines+markers',
-    name: 'Battery Level (%)',
-    line: {color: '#FF6F00', width: 4},
-    marker: {size: 8, symbol: 'circle'},
-    yaxis: 'y1'  // Primary y-axis
-};
+        const batteryData = {
+            x: [0, 30, 60, 90, 120],
+            y: [100, 75, 50, 25, 0],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Battery Level',
+            line: {color: '#FF6F00', width: 4},
+            marker: {size: 8}
+        };
 
-const thermalData = {
-    x: [0, 30, 60, 90, 120],
-    y: [25, 32, 41, 48, 52],
-    type: 'scatter',
-    mode: 'lines+markers',
-    name: 'Temperature (°C)',
-    line: {color: '#2196F3', width: 4, dash: 'dot'},
-    marker: {size: 8, symbol: 'triangle-up'},
-    yaxis: 'y2'  // Secondary y-axis
-};
+        const tempData = {
+            x: [0, 30, 60, 90, 120],
+            y: [45, 65, 82, 89, 93],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Temperature (°C)',
+            line: {color: '#EF5350', width: 4, dash: 'dot'},
+            marker: {size: 10, symbol: 'diamond'},
+            yaxis: 'y2'
+        };
 
-const layout = {
-    title: 'Battery & Thermal Performance',
-    xaxis: {
-        title: 'Time (minutes)',
-        range: [0, 120]
-    },
-    yaxis: {
-        title: 'Battery Level (%)',
-        range: [0, 100],
-        titlefont: {color: '#FF6F00'},
-        tickfont: {color: '#FF6F00'}
-    },
-    yaxis2: {
-        title: 'Temperature (°C)',
-        range: [0, 60],
-        titlefont: {color: '#2196F3'},
-        tickfont: {color: '#2196F3'},
-        overlaying: 'y',
-        side: 'right'
-    },
-    legend: {x: 0.1, y: 1.2},
-    margin: {l: 60, r: 60, t: 60, b: 60},
-    plot_bgcolor: '#f5f5f5'
-};
-
-Plotly.newPlot('yourDivId', [batteryData, thermalData], layout);
+        Plotly.newPlot('batteryPerformance', [batteryData, tempData], {
+            title: 'Battery & Thermal Performance',
+            paper_bgcolor: 'rgba(255,255,255,0.9)',
+            xaxis: {title: 'Operation Time (minutes)'},
+            yaxis: {title: 'Battery %', range: [0,100]},
+            yaxis2: {
+                title: 'Temperature (°C)',
+                overlaying: 'y',
+                side: 'right',
+                range: [40,100]
             }
         });
 
